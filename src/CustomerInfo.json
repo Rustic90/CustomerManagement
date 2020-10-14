@@ -1,8 +1,14 @@
 [
     {
-        "firstName" : "John",
-        "lastName" : "Smith",
-        "phoneNumber" : "502-555-5555",
-        "birthday" : "10/03/1980"
+        "FirstName" : "John",
+        "LastName" : "Smith",
+        "PhoneNumber" : "502-555-5555",
+        "Birthday" : "10/03/1980"
+    },
+    {
+        "FirstName" : "Amy",
+        "LastName" : "Smith",
+        "PhoneNumber" : "502-111-2222",
+        "Birthday" : "05/12/1981"
     }
 ]

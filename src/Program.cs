@@ -12,7 +12,20 @@ namespace CustomerManagement
             Console.WriteLine("----------------------------------------------");
             Console.ResetColor();
             Menu mainMenu = new Menu();
-            int selection = mainMenu.BeginMenu();            
+            int selection = mainMenu.BeginMenu();    
+            switch(selection)
+            {
+                case 1: mainMenu.SearchCustomers();
+                        break;
+                case 2: mainMenu.SearchSingleCustomer();
+                        break;
+                case 3: mainMenu.AddCustomer();
+                        break;
+                case 4: mainMenu.RemoveCustomer();
+                        break;
+                case 5: Console.WriteLine("See you next time!");
+                        break;
+            }        
         }
     }
 }

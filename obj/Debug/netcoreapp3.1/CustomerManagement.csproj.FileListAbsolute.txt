@@ -11,3 +11,5 @@ C:\Users\alcor\Desktop\C#\CustomerManagement\obj\Debug\netcoreapp3.1\CustomerMan
 C:\Users\alcor\Desktop\C#\CustomerManagement\obj\Debug\netcoreapp3.1\CustomerManagement.dll
 C:\Users\alcor\Desktop\C#\CustomerManagement\obj\Debug\netcoreapp3.1\CustomerManagement.pdb
 C:\Users\alcor\Desktop\C#\CustomerManagement\obj\Debug\netcoreapp3.1\CustomerManagement.genruntimeconfig.cache
+C:\Users\alcor\Desktop\C#\CustomerManagement\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\alcor\Desktop\C#\CustomerManagement\obj\Debug\netcoreapp3.1\CustomerManagement.csproj.CopyComplete

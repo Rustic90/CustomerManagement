@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace CustomerManagement
 {
@@ -47,9 +50,22 @@ namespace CustomerManagement
             }
             return 0;
         }
-        public void SearchCustomer()
+        public void SearchCustomers()
         {
-            Console.WriteLine("search all customers coming soon");
+            using (StreamReader reader = new StreamReader("src/CustomerInfo.json"))
+            {
+                string rawCustomerList = reader.ReadToEnd();
+                List<Customer> Customers = new List<Customer>();
+                Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
+                foreach (var customer in Customers)
+                {
+                    Console.WriteLine("--------------------------");
+                    Console.WriteLine(customer.FirstName + " - " + customer.LastName );
+                    Console.WriteLine("Phone: " + customer.PhoneNumber);
+                    Console.WriteLine("Birthday: " + customer.Birthday);
+                }
+                
+            }
         }
         public void SearchSingleCustomer()
         {
