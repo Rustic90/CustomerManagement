@@ -73,7 +73,23 @@ namespace CustomerManagement
         }
         public void AddCustomer()
         {
-            Console.WriteLine("add customer coming soon");
+            List<Customer> Customers;
+            string rawCustomerList;
+            using (StreamReader reader = new StreamReader("src/CustomerInfo.json"))
+            {
+                rawCustomerList = reader.ReadToEnd();
+                Customers = new List<Customer>();
+                Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
+      
+                Customer customerToAdd = new Customer();
+                customerToAdd.CreateNew();
+                Customers.Add(customerToAdd);
+            }
+            using (StreamWriter writer = new StreamWriter("src/CustomerInfo.json"))
+            {
+                rawCustomerList = JsonConvert.SerializeObject(Customers);
+                writer.Write(rawCustomerList);
+            }
         }
         public void RemoveCustomer()
         {
