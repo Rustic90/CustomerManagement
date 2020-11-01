@@ -110,7 +110,31 @@ namespace CustomerManagement
         }
         public void RemoveCustomer()
         {
-            Console.WriteLine("remove customer coming soon");
+            List<Customer> Customers;
+            string rawCustomerList;
+            using (StreamReader reader = new StreamReader("src/CustomerInfo.json"))
+            {
+                rawCustomerList = reader.ReadToEnd();
+                Customers = new List<Customer>();
+                Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
+
+                Console.WriteLine("Enter a customer first name to remove: ");
+                string customerNameToRemove = Console.ReadLine();
+                foreach (Customer customer in Customers)
+                {
+                    if (customer.FirstName.Equals(customerNameToRemove))
+                    {
+                        int index = Customers.IndexOf(customer);
+                        Customers.RemoveAt(index);
+                    }
+                }
+                Console.WriteLine();
+            }
+            // using (StreamWriter writer = new StreamWriter("src/CustomerInfo.json"))
+            // {
+            //     rawCustomerList = JsonConvert.SerializeObject(Customers);
+            //     writer.Write(rawCustomerList);
+            // }
         }
     }
 }
