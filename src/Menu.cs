@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace CustomerManagement
 {
@@ -69,7 +70,23 @@ namespace CustomerManagement
         }
         public void SearchSingleCustomer()
         {
-            Console.WriteLine("search single customer coming soon");
+            using (StreamReader reader = new StreamReader("src/CustomerInfo.json"))
+            {
+                string rawCustomerList = reader.ReadToEnd();
+                List<Customer> Customers = new List<Customer>();
+                Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
+                Console.WriteLine("Enter the first name of the customer you want to search: ");
+                string customerToSearch = Console.ReadLine();
+                Customer customerSearched = new Customer();
+                foreach(var customer in Customers)
+                {
+                    if (customer.FirstName == customerToSearch)
+                    {
+                        customerSearched = customer;
+                    }
+                }
+                customerSearched.printInfo();
+            }
         }
         public void AddCustomer()
         {
@@ -82,7 +99,7 @@ namespace CustomerManagement
                 Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
       
                 Customer customerToAdd = new Customer();
-                customerToAdd.CreateNew();
+                customerToAdd.createNew();
                 Customers.Add(customerToAdd);
             }
             using (StreamWriter writer = new StreamWriter("src/CustomerInfo.json"))
