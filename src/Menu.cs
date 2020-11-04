@@ -97,9 +97,17 @@ namespace CustomerManagement
                 rawCustomerList = reader.ReadToEnd();
                 Customers = new List<Customer>();
                 Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
-      
-                Customer customerToAdd = new Customer();
-                customerToAdd.createNew();
+                
+                Console.WriteLine("Enter a first name: ");
+                string firstName = Console.ReadLine();
+                Console.WriteLine("Enter a last name: ");
+                string lastName = Console.ReadLine();
+                Console.WriteLine("Enter a phone number: ");
+                string phoneNumber = Console.ReadLine();
+                Console.WriteLine("Enter a birthdate: ");
+                string birthday = Console.ReadLine();
+
+                Customer customerToAdd = new Customer(firstName, lastName, phoneNumber, birthday);
                 Customers.Add(customerToAdd);
             }
             using (StreamWriter writer = new StreamWriter("src/CustomerInfo.json"))
@@ -117,6 +125,7 @@ namespace CustomerManagement
                 rawCustomerList = reader.ReadToEnd();
                 Customers = new List<Customer>();
                 Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
+                int indexToRemove = 0;
 
                 Console.WriteLine("Enter a customer first name to remove: ");
                 string customerNameToRemove = Console.ReadLine();
@@ -124,17 +133,17 @@ namespace CustomerManagement
                 {
                     if (customer.FirstName.Equals(customerNameToRemove))
                     {
-                        int index = Customers.IndexOf(customer);
-                        Customers.RemoveAt(index);
+                        indexToRemove = Customers.IndexOf(customer);
                     }
                 }
+                Customers.RemoveAt(indexToRemove);
                 Console.WriteLine();
             }
-            // using (StreamWriter writer = new StreamWriter("src/CustomerInfo.json"))
-            // {
-            //     rawCustomerList = JsonConvert.SerializeObject(Customers);
-            //     writer.Write(rawCustomerList);
-            // }
+            using (StreamWriter writer = new StreamWriter("src/CustomerInfo.json"))
+            {
+                rawCustomerList = JsonConvert.SerializeObject(Customers);
+                writer.Write(rawCustomerList);
+            }
         }
     }
 }
