@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "t/uYfQVZvuAWZcoT5w3cIXTm288hCfs+yoHbmCzVFGSnh6dd+neoM+bwr/UZclVq+PZZiaL+36aobtIYpa0QTg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alcor\\Desktop\\C#\\CustomerManagement\\CustomerManagementMain\\CustomerManagement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alcor\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
