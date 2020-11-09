@@ -51,21 +51,14 @@ namespace CustomerManagement
             }
             return 0;
         }
-        public void SearchCustomers()
+        public List<Customer> SearchCustomers()
         {
             using (StreamReader reader = new StreamReader("CustomerInfo.json"))
             {
                 string rawCustomerList = reader.ReadToEnd();
                 List<Customer> Customers = new List<Customer>();
                 Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
-                foreach (var customer in Customers)
-                {
-                    Console.WriteLine("--------------------------");
-                    Console.WriteLine(customer.FirstName + " - " + customer.LastName );
-                    Console.WriteLine("Phone: " + customer.PhoneNumber);
-                    Console.WriteLine("Birthday: " + customer.Birthday);
-                }
-                
+                return Customers;
             }
         }
         public Customer SearchSingleCustomer(string customerToSearch)

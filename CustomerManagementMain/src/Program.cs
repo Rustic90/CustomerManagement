@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection.Metadata;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CustomerManagement
 {
@@ -19,7 +21,16 @@ namespace CustomerManagement
                 int selection = mainMenu.BeginMenu();    
                 switch(selection)
                 {
-                        case 1: mainMenu.SearchCustomers();
+                        case 1: List<Customer> Customers = mainMenu.SearchCustomers();
+                                Console.ForegroundColor = ConsoleColor.Blue;
+                                foreach (var customer in Customers)
+                                {
+                                Console.WriteLine("--------------------------");
+                                Console.WriteLine(customer.FirstName + " - " + customer.LastName );
+                                Console.WriteLine("Phone: " + customer.PhoneNumber);
+                                Console.WriteLine("Birthday: " + customer.Birthday);
+                                }
+                                Console.ResetColor();
                                 break;
                         case 2: Console.WriteLine("Enter the first name of the customer you want to search: ");
                                 string customerToSearch = Console.ReadLine();

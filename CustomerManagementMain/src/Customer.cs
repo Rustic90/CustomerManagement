@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 
 namespace CustomerManagement
 {
@@ -24,12 +25,14 @@ namespace CustomerManagement
 
         public void printInfo()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("--------------------");
             Console.WriteLine(this.FirstName);
             Console.WriteLine(this.LastName);
             Console.WriteLine(this.PhoneNumber);
             Console.WriteLine(this.Birthday);
             Console.WriteLine("--------------------");
+            Console.ResetColor();
         }
     }
 }
