@@ -3,6 +3,7 @@
 <p> Customer Management System is my C#/.NET project for Code Louisville. The purpose of this project
 is to offer a simple system for adding, removing, and searching through customer information. </p>
 <p> This program has two main parts - CustomerManagementMain and CustomerManagementTests. These represent the main program and accompanying unit tests. </p>
+<p> This project was done in VS code. To run - clone project, open to the CustomerManagementMain folder in command prompt, 'dotnet restore' and then 'dotnet run'. </p>
 <p> Customer information is saved in a JSON file and manipulated by the program based on user input </p>
 <h3> The following criteria are met by this project: </h3>
 <ul>
