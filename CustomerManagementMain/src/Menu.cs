@@ -108,6 +108,9 @@ namespace CustomerManagement
                 rawCustomerList = JsonConvert.SerializeObject(Customers);
                 writer.Write(rawCustomerList);
             }
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Customer Created Successfully");
+            Console.ResetColor();
         }
         public void RemoveCustomer()
         {
@@ -118,18 +121,31 @@ namespace CustomerManagement
                 rawCustomerList = reader.ReadToEnd();
                 Customers = new List<Customer>();
                 Customers = JsonConvert.DeserializeObject<List<Customer>>(rawCustomerList);
-                int indexToRemove = 0;
+                int indexToRemove = 100;
 
                 Console.WriteLine("Enter a customer first name to remove: ");
-                string customerNameToRemove = Console.ReadLine();
+                string customerFirstNameToRemove = Console.ReadLine();
+                Console.WriteLine("Enter a customer last name to remove: ");
+                string customerLastNameToRemove = Console.ReadLine();
                 foreach (Customer customer in Customers)
                 {
-                    if (customer.FirstName.Equals(customerNameToRemove))
+                    if (customer.FirstName.Equals(customerFirstNameToRemove) && customer.LastName.Equals(customerLastNameToRemove))
                     {
                         indexToRemove = Customers.IndexOf(customer);
                     }
                 }
-                Customers.RemoveAt(indexToRemove);
+                try {
+                    Customers.RemoveAt(indexToRemove);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Customer Removed Successfully");
+                    Console.ResetColor();
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("No customer found with that name");
+                    Console.ResetColor();
+                }
                 Console.WriteLine();
             }
             using (StreamWriter writer = new StreamWriter("CustomerInfo.json"))
