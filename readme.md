@@ -12,4 +12,5 @@ is to offer a simple system for adding, removing, and searching through customer
 <li> Read data from an external file, such as text, JSON, CSV, etc and use that data in your application </li>
 <li> Create 3 or more unit tests for your application</li>
 </ul>
+<h2>IMPORTANT: Do not delete the 'Curtis Alcorn' customer or one of the unit tests will not pass. Also, when creating, searching, or removing customers, it is case-sensitive and white-space-sensitive. </h2>
 
